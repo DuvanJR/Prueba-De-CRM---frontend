@@ -1,0 +1,182 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Edicion De Contacto</h3>
+    <form (ngSubmit)="onSubmit()" #usuarioForm ="ngForm">
+        <div class="form-group">
+            <label for="">Nombre: </label>
+            <input type="text"
+            class="form-control"
+            id="nombre"
+            [(ngModel)] = "usuario.nombre"
+            name="nombre"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Nombres"
+            #nombre = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors.required">
+                    Digite Su nombre Por Favor
+                </div>
+                <div *ngIf="nombre.errors.minlength">
+                    El nombre debe contener como minimo 4 caracteres
+                </div>
+                <div *ngIf="nombre.errors.maxlength">
+                    El nombre debe contener como minimo 20 caracteres
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="">Apellido: </label>
+            <input type="text"
+            class="form-control"
+            id="apellido"
+            [(ngModel)] = "usuario.apellido"
+            name="apellido"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Apellidos"
+            #apellido = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                <div *ngIf="apellido.errors.required">
+                    Digite Su apellido Por Favor
+                </div>
+                <div *ngIf="apellido.errors.minlength">
+                    El apellido debe contener como minimo 4 caracteres
+                </div>
+                <div *ngIf="apellido.errors.maxlength">
+                    El apellido debe contener como minimo 20 caracteres
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="">Email: </label>
+            <input type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)] = "usuario.email"
+            name="email"
+            pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+            required
+            placeholder="E-mail"
+            #email = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">
+                    Digite Su email Por Favor
+                </div>
+                <div *ngIf="email.errors.pattern">
+                    Email incorrecto - Formato correcto: "example@email.com"
+                </div>
+            </div>
+        </div>
+            
+
+        <div class="form-group">
+            <label for="">Numero Telefonico: </label>
+            <input type="number"
+            class="form-control"
+            id="numero"
+            [(ngModel)] = "usuario.numero"
+            name="numero"
+            required
+            placeholder="Cel/Tel"
+            #numero = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf="numero.invalid && (numero.dirty || numero.touched)">
+                <div *ngIf="numero.errors.required">
+                    Digite Su numero Por Favor
+                </div>
+            </div>
+        </div>
+            
+
+        <div class="form-group">
+            <label for="">Fecha de nacimiento: </label>
+            <input type="date"
+            class="form-control"
+            id="fecha"
+            [(ngModel)] = "usuario.fecha"
+            name="fecha"
+            required
+            placeholder="Fecha de nacimiento"
+            #fecha = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
+                <div *ngIf="fecha.errors.required">
+                    Indique Su fecha de nacimiento Por Favor
+                </div>
+            </div>
+        </div>
+            
+
+
+        <div class="form-group">
+            <label for="">Direccion: </label>
+            <input type="text"
+            class="form-control"
+            id="direccion"
+            [(ngModel)] = "usuario.direccion"
+            name="direccion"
+            required
+            placeholder="Direccion"
+            #direccion = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                <div *ngIf="direccion.errors.required">
+                    Indique la direccion Por Favor
+                </div>
+            </div>
+        </div>
+            
+
+
+        <div class="form-group">
+            <label for="">Tipo De Contacto: </label>
+            <input type="text"
+            class="form-control"
+            id="tipoContacto"
+            [(ngModel)] = "usuario.tipoContacto"
+            name="tipoContacto"
+            required
+            placeholder="Tipo de contacto"
+            #tipocontacto = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf="tipocontacto.invalid && (tipocontacto.dirty || tipocontacto.touched)">
+                <div *ngIf="tipocontacto.errors.required">
+                    Indique el tipo de contacto Por Favor
+                </div>
+            </div>
+        </div>
+            
+
+
+        <div class="form-group">
+            <label for="">Origen: </label>
+            <input type="text"
+            class="form-control"
+            id="origen"
+            [(ngModel)] = "usuario.origen"
+            name="origen"
+            required
+            placeholder="Origen"
+            #origen = "ngModel"
+            >
+            <div class="alert alert-danger" *ngIf="origen.invalid && (origen.dirty || origen.touched)">
+                <div *ngIf="origen.errors.required">
+                    Indique el origen Por Favor
+                </div>
+            </div>
+        </div>
+            
+
+        
+        <button class="btn btn-success" [disabled]="!usuarioForm.form.valid">Guardar</button>
+    </form>
+</div>
